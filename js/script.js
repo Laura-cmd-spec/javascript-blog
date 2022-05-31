@@ -6,7 +6,6 @@
   console.log('Link was clicked!');
   event.preventDefault();
   
- 
     /* [Done] remove class 'active' from all article links  */ 
 
   const activeLinks = document.querySelectorAll('.titles a.active');
@@ -17,6 +16,7 @@
    /* [Done] add class 'active' to the clicked link */
 
     clickedElement.classList.add('active');
+        console.log ('clikedElement:', clikedElement);
 
    /*[Done] remove class 'active' from all articles */
 
@@ -37,7 +37,12 @@
 
   /* [Done] add class 'active' to the correct article */
   targetArticle.classList.add('active');
-  };
+  }
+
+  const links = document.querySelectorAll('.titles a');
+  for (let link of links){
+    link.addEventListener('click', titleClickHandler);
+  }
 
 const  optArticleSelector = '.post',
   optTitleSelector = '.post-title',
@@ -47,12 +52,11 @@ const  optArticleSelector = '.post',
 /* remove contents of titleList */
 
   const titleList = document.querySelector(optTitleListSelector);
-  
-  titleList.innerHTML = '';
   let html = '';
+  titleList.innerHTML = '';
 
   /* for each article */
-  const articles = dokument.querySelectorAll(optArticleSelector);
+  const articles = document.querySelectorAll(optArticleSelector);
 
   for (let article of articles){
 
@@ -75,10 +79,6 @@ const  optArticleSelector = '.post',
 
   generateTitleLinks();
 
-  const links = document.querySelectorAll('.titles a');
-  for (let link of links){
-    link.addEventListener('click', titleClickHandler);
-  }
   }
   
   
