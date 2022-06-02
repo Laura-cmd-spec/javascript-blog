@@ -46,7 +46,7 @@
     optArticleAuthorSelector ='post-author';
 
 
-  function generateTitleLinks() {
+  function generateTitleLinks(customSelector='') {
     /* remove contents of titleList */
 
     const titleList = document.querySelector(optTitleListSelector);
@@ -54,7 +54,7 @@
     titleList.innerHTML = '';
 
     /* for each article */
-    const articles = document.querySelectorAll(optArticleSelector);
+    const articles = document.querySelectorAll(optArticleSelector + customSelector);
 
     for (let article of articles) {
 
@@ -92,12 +92,12 @@ function generateTags() {
   const articleTag = article.querySelector('optiArticleTagsSelector');
     articleTag.innerHTML = '';
     /* make html variable with empty string */
-    let HTML = '';
+    let html = '';
     /* get tags from data-tags attribute */
   const articleTags = article.getAtribut('data-tags');
     console.log(articleTags);
     /* split tags into array */
-  const articleTagsArray = articleTags.split('');
+  const articleTagsArray = articleTags.split(' ');
     console.log(articleTagsArray);
     /* START LOOP: for each tag */
     for (let tag of articleTagsArray) {
@@ -122,7 +122,7 @@ const clickedElement=this;
   /* make a new constant "href" and read the attribute "href" of the clicked element */
   const href=clickedElement.getAttribute('href')
   /* make a new constant "tag" and extract tag from the "href" constant */
-  const tag =href.replace('#tag-', '');
+  const tag = href.replace('#tag-', '');
   console.log(tag)
   /* find all tag links with class active */
 const activeTagLinks=document.guerySelectorAll('a.active[href^="#tag-"]');
@@ -142,7 +142,7 @@ for (let tagLink of tagLinks){
 }
   /* execute function "generateTitleLinks" with article selector as argument */
 
-generateTitleLinks('[data-tags~="'+tag+'"]');
+generateTitleLinks('[data-tags~="'+ tag +'"]');
 }
 
 function addClickListenersToTags(){
@@ -174,7 +174,7 @@ const linkHTML = '<a href="#author-' + articleAuthor + '">' + articleAuthor + ' 
 html=linkHTML;
 
 postAuthor.innerHTML=html;
-}
+  }
 }
 generateAuthors();
 
@@ -217,6 +217,6 @@ for (linkToAuthor of linksToAuthor){
     /* add tagClickHandler as event listener for that link */
 linkToAuthor.addEventListener('click', authorClickHandler);
   /* END LOOP: for each link */
-}
+  }
 }
 addClickListenersToAuthors();
