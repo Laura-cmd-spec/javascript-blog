@@ -41,13 +41,12 @@
 
   const optArticleSelector = '.post',
     optTitleSelector = '.post-title',
-    optTitleListSelector = '.titles';
-    optArticleTagsSelector = '.post-tags .list';
+    optTitleListSelector = '.titles',
+    optArticleTagsSelector = '.post-tags .list',
     optArticleAuthorSelector = '.post-author';
 
 
   function generateTitleLinks(customSelector = '') {
-    console.log('Generate Title List');
     /* remove contents of titleList */
 
    const titleList = document.querySelector(optTitleListSelector);
@@ -105,9 +104,9 @@
       /* START LOOP: for each tag */
       for (let tag of articleTagsArray) {
         /* generate HTML of the link */
-  const LinkHTML = '<li><a href="#tag-' + tag + '">' + tag + ' ' + '</a></li>';
+  const linkHTML = '<li><a href="#tag-' + tag + '">' + tag + ' ' + '</a></li>';
         /* add generated code to html variable */
-      html = html + linkHTML;
+      html = html + linkHTML
         /* END LOOP: for each tag */
       }
       /* insert HTML of all the links into the tags wrapper */
