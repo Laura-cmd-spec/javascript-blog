@@ -88,6 +88,7 @@ body {
 
 .list-horizontal {
   li {
+    margin-left: 7px;
     display: inline-block;
   }
 }
@@ -118,4 +119,35 @@ body {
   p {
     margin: 0 10px 0 0;
   }
+}
+/*Tags*/
+.tags.list{
+  li {
+    display:inline
+  }
+
+}
+.tag-size-1{
+  font-size: 20%;
+  color: red
+}
+.tag-size-2{
+  font-size: 30%;
+  color: rgb(224, 24, 144);
+}
+.tag-size-3{
+  font-size: 40%;
+  color:blue;
+}
+.tag-size-4{
+  font-size: 50%;
+  color:rgb(26, 255, 0);
+}
+.tag-size-5{
+  font-size: 70%;
+  color:brown;
+}
+.tag-size-7{
+  font-size: 100%;
+  color:rgb(0, 157, 255);
 }
